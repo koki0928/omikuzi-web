@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支払いくじアプリ</title>
+    <link rel="stylesheet" href="omikuzi6.css">
+</head>
+<body>
+    <div class="container">
+        <h1>支払いくじアプリ</h1>
+
+        <!-- 合計金額の入力 -->
+        <p><label for="totalAmount">合計金額（円）:</label></p>
+        <input type="number" id="totalAmount" placeholder="例: 10000">
+
+        <!-- 参加者リスト -->
+        <div class="participants">
+            <P><label for="participantName">参加者名:</label></P>
+            <input type="text" id="participantName" placeholder="例: 田中">
+            <button id="addParticipant">追加</button>
+        </div>
+        <ul id="participantList"></ul>
+
+        <!-- くじのモード選択 -->
+        <div class="mode-selection">
+            <label><input type="radio" name="mode" value="single" checked> 1人全額支払い</label>
+            <label><input type="radio" name="mode" value="split"> 金額を分割 ※均等に分割されないよ！</label>
+        </div>
+
+        <!-- くじを引くボタン -->
+        <button id="drawButton">くじを引く</button>
+        <button id="resetButton">リセット</button>
+
+        <!-- 白黒反転モードボタン -->
+        <button id="toggleDarkMode">白黒反転</button>
+
+
+        <!-- 使い方ボタン -->
+        <button id="howToUseButton" class="how-to-use-btn">使い方</button>
+
+        <!-- 罰ゲームモードのチェックボックスを追加 -->
+        <div class="punishment-mode">
+            <label><input type="checkbox" id="punishmentMode"> 罰ゲーム追加</label>
+        </div>
+
+        <!-- 使い方のポップアップウィンドウ -->
+        <div id="howToUseModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>アプリの使い方</h2>
+                <p>①支払い総額を入力</p>
+                <p>②参加者の名前を追加</p>
+                <p>③お支払いモードの選択　※全額支払いor分割払い</p>
+                <p>④罰ゲームモードの選択</p>
+                <p>⑤「くじを引く」ボタンを押す</p>
+                <p>⑥結果表示！</p>
+                <p>⑦「リセット」ボタンで最初からやり直し</p>
+                <p>さて、誰がいくら支払うか決めよう！！</p>
+            </div>
+        </div>
+        
+
+        <!-- 罰ゲーム表示エリア -->
+        <div id="punishmentSection" class="hidden">
+            <h2>罰ゲーム</h2>
+            <h3>※「金額を分割」モードでは金額の１番低い人が罰ゲーム！</h3>
+            <p id="punishmentText"></p>
+        </div>
+        
+        <!-- 結果表示エリア -->
+        <div id="resultSection" class="hidden">
+            <h2>結果</h2>
+            <ul id="resultList"></ul>
+        </div>
+    </div>
+
+    <script src="omikuzi5.js"></script>
+</body>
+</html>
